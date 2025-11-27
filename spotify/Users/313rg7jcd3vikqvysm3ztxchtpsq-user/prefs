@@ -1,0 +1,11 @@
+audio.equalizer.low_mid_peak_gain_v2=223696213
+audio.equalizer_v2=true
+connect.mdns_devices="[]"
+connect.dial_devices="[{\"address\":\"10.20.30.107\",\"app_state\":\"MISSING\",\"created_timestamp\":1764252220,\"device_id\":\"00000000-0000-0000-0000-047a0b6d432c\",\"dial_location_url\":\"http://10.20.30.107:56790/dd.xml\",\"display_name\":\"Mediatek_MTXXXX\",\"last_seen\":1764252319,\"manufacturer\":\"MediaTek Inc.\",\"model_name\":\"Mediatek_MTXXXX\",\"product_cap\":\"\",\"public_ip\":\"45.149.209.140\",\"wol\":{\"all_interfaces\":false,\"delay_ms\":250,\"mac\":\"047a0b6d432c\",\"port\":9,\"retries\":240}}]"
+audio.play_bitrate_non_metered_migrated=true
+audio.play_bitrate_non_metered_enumeration=3
+audio.play_bitrate_enumeration=3
+audio.equalizer.low_peak_gain_v2=626349397
+app.player.volume=39373
+audio.loudness.environment=2
+audio.equalizer.low_shelf_gain_v2=760567125

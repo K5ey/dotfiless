@@ -1,0 +1,240 @@
+@import url('/home/wojtek/.cache/wal/colors-waybar.css');
+
+* {
+    font-size: 15px;
+    font-family: "CodeNewRoman Nerd Font Propo";
+}
+
+window#waybar {
+    all: unset;
+}
+
+@keyframes workspace-activate {
+    0% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes workspace-deactivate {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.5;
+    }
+}
+
+@keyframes workspace-pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.7; }
+    100% { opacity: 1; }
+}
+
+.modules-left, .modules-center, .modules-right {
+    padding: 7px;
+    margin: 10px 0px 5px 10px;
+    border-radius: 25px;
+    background: alpha(@background, 0.2);
+    /* Remove the purple border */
+    border: none;
+    box-shadow: 0 2px 8px alpha(@color0, 0.1);
+}
+
+.modules-center {
+    margin: 10px 0px 5px 0px;
+}
+
+.modules-right {
+    margin: 10px 10px 5px 0px;
+}
+
+tooltip {
+    background: alpha(@background, 0.9);
+    color: @foreground;
+    border: 1px solid alpha(@color1, 0.3);
+    border-radius: 10px;
+}
+
+#custom-arch {
+padding: 2px 8px;
+transition: all 0.3s ease;
+color: @color1;
+background: alpha(@background, 0.6);
+border-radius: 8px;
+margin: 0px 4px;
+font-weight: bold;
+/* Remove the purple border */
+border: none;
+box-shadow: 0 0 5px alpha(@color1, 0.2);
+}
+
+#custom-arch:hover {
+background: alpha(@color1, 0.2);
+color: @foreground;
+}
+
+#clock:hover, #custom-pacman:hover, #custom-notification:hover,
+#bluetooth:hover, #network:hover, #battery:hover,
+#cpu:hover, #memory:hover, #temperature:hover,
+#pulseaudio:hover, #custom-updates:hover, #custom-powermenu:hover {
+transition: all 0.3s ease;
+color: @color1;
+background: alpha(@color1, 0.1);
+border-radius: 5px;
+}
+
+#custom-notification, #clock, #custom-pacman, #bluetooth,
+#network, #battery, #cpu, #memory, #temperature,
+#pulseaudio, #custom-updates, #custom-powermenu {
+padding: 0px 5px;
+transition: all 0.3s ease;
+color: @foreground;
+}
+
+#workspaces {
+padding: 0px 5px;
+background: alpha(@color0, 0.1);
+border-radius: 15px;
+margin: 0px 2px;
+/* Remove any border from workspace container */
+border: none;
+}
+
+#workspaces button {
+all: unset;
+padding: 3px 8px;
+color: alpha(@foreground, 0.6);
+transition: all 0.3s ease;
+border-radius: 10px;
+margin: 0px 1px;
+font-weight: bold;
+/* Remove borders from workspace buttons */
+border: none;
+}
+
+#workspaces button:hover {
+color: @color1;
+background: alpha(@color1, 0.2);
+box-shadow: 0 2px 6px alpha(@color0, 0.3);
+}
+
+#workspaces button.active {
+color: @foreground;
+background: alpha(@color1, 0.4);
+box-shadow: 0 2px 8px alpha(@color1, 0.3);
+text-shadow: 0px 0px 3px alpha(@color1, 0.5);
+animation: workspace-activate 0.3s ease-in-out forwards, workspace-pulse 2s ease-in-out infinite;
+/* Remove any border from active workspace */
+border: none;
+}
+
+#workspaces button:not(.active) {
+animation: workspace-deactivate 0.3s ease-in-out forwards;
+}
+
+#workspaces button.empty {
+color: alpha(@foreground, 0.3);
+background: alpha(@color0, 0.1);
+}
+
+#workspaces button.empty:hover {
+color: @color1;
+background: alpha(@color1, 0.15);
+}
+
+#workspaces button.empty.active {
+color: @foreground;
+background: alpha(@color1, 0.4);
+animation: workspace-activate 0.3s ease-in-out forwards, workspace-pulse 2s ease-in-out infinite;
+}
+
+#battery.charging {
+color: @color2;
+}
+
+#battery.warning:not(.charging) {
+color: @color3;
+}
+
+#battery.critical:not(.charging) {
+color: @color1;
+animation-name: blink;
+animation-duration: 0.5s;
+animation-timing-function: linear;
+animation-iteration-count: infinite;
+animation-direction: alternate;
+}
+
+#custom-updates {
+color: @color3;
+padding: 0px 5px;
+transition: all 0.3s ease;
+}
+
+#custom-updates:hover {
+color: @foreground;
+background: alpha(@color3, 0.2);
+border-radius: 5px;
+}
+
+#custom-weather {
+color: @color4;
+padding: 0px 5px;
+transition: all 0.3s ease;
+}
+
+#custom-weather:hover {
+color: @foreground;
+background: alpha(@color4, 0.2);
+border-radius: 5px;
+}
+
+#custom-powermenu {
+color: @color1;
+padding: 0px 8px;
+transition: all 0.3s ease;
+border-radius: 5px;
+}
+
+#custom-powermenu:hover {
+background: alpha(@color1, 0.2);
+color: @foreground;
+}
+
+#tray {
+padding: 0px 5px;
+transition: all 0.3s ease;
+}
+
+#tray menu * {
+padding: 0px 5px;
+transition: all 0.3s ease;
+}
+
+#tray menu separator {
+padding: 0px 5px;
+transition: all 0.3s ease;
+}
+
+#group-expand, #custom-colorpicker, #custom-endpoint {
+padding: 0px 5px;
+transition: all 0.3s ease;
+}
+
+#custom-expand {
+color: alpha(@foreground, 0.2);
+text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.7);
+}
+
+#custom-expand:hover {
+color: rgba(255, 255, 255, 0.2);
+text-shadow: 0px 0px 2px rgba(255, 255, 255, 0.5);
+}
+
+#custom-endpoint {
+color: transparent;
+text-shadow: 0px 0px 1.5px rgba(0, 0, 0, 1);
+}

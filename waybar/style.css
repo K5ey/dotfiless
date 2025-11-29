@@ -1,4 +1,4 @@
-@import url('/home/wojtek/.cache/wal/colors-waybar.css');
+@import url('/home/wojtii/.cache/wal/colors-waybar.css');
 
 * {
     font-size: 15px;
@@ -30,6 +30,12 @@ window#waybar {
 @keyframes workspace-pulse {
     0% { opacity: 1; }
     50% { opacity: 0.7; }
+    100% { opacity: 1; }
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
     100% { opacity: 1; }
 }
 
@@ -96,59 +102,45 @@ color: @foreground;
 
 #workspaces {
 padding: 0px 5px;
-background: alpha(@color0, 0.1);
-border-radius: 15px;
-margin: 0px 2px;
-/* Remove any border from workspace container */
-border: none;
 }
 
 #workspaces button {
 all: unset;
-padding: 3px 8px;
-color: alpha(@foreground, 0.6);
-transition: all 0.3s ease;
-border-radius: 10px;
-margin: 0px 1px;
-font-weight: bold;
-/* Remove borders from workspace buttons */
-border: none;
+padding: 0px 5px;
+color: alpha(@color9, 0.4);
+transition: all 0.2s ease;
 }
 
 #workspaces button:hover {
-color: @color1;
-background: alpha(@color1, 0.2);
-box-shadow: 0 2px 6px alpha(@color0, 0.3);
+color: rgba(0, 0, 0, 0);
+border: none;
+text-shadow: 0px 0px 1.5px rgba(0, 0, 0, 0.5);
+transition: all 1s ease;
 }
 
 #workspaces button.active {
-color: @foreground;
-background: alpha(@color1, 0.4);
-box-shadow: 0 2px 8px alpha(@color1, 0.3);
-text-shadow: 0px 0px 3px alpha(@color1, 0.5);
-animation: workspace-activate 0.3s ease-in-out forwards, workspace-pulse 2s ease-in-out infinite;
-/* Remove any border from active workspace */
+color: @color9;
 border: none;
-}
-
-#workspaces button:not(.active) {
-animation: workspace-deactivate 0.3s ease-in-out forwards;
+text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5);
 }
 
 #workspaces button.empty {
-color: alpha(@foreground, 0.3);
-background: alpha(@color0, 0.1);
+color: rgba(0, 0, 0, 0);
+border: none;
+text-shadow: 0px 0px 1.5px rgba(0, 0, 0, 0.2);
 }
 
 #workspaces button.empty:hover {
-color: @color1;
-background: alpha(@color1, 0.15);
+color: rgba(0, 0, 0, 0);
+border: none;
+text-shadow: 0px 0px 1.5px rgba(0, 0, 0, 0.5);
+transition: all 1s ease;
 }
 
 #workspaces button.empty.active {
-color: @foreground;
-background: alpha(@color1, 0.4);
-animation: workspace-activate 0.3s ease-in-out forwards, workspace-pulse 2s ease-in-out infinite;
+color: @color9;
+border: none;
+text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5);
 }
 
 #battery.charging {

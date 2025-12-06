@@ -1,27 +1,24 @@
 {
-    "layer": "top",
+    "layer": "bottom",
     "position": "top",
-    "height": 30,
-    "spacing": 4,
+    "height": 50,
+    "spacing": 5,
 
     "modules-left": ["custom/arch", "cpu", "memory", "clock"],
-    "modules-center": ["hyprland/workspaces"],
-    "modules-right": ["pulseaudio", "network", "battery", "tray", "custom/powermenu"],
+    "modules-center": ["hyprland/workspaces", "custom/playing"],
+    "modules-right": ["pulseaudio", "network", "bluetooth", "backlight", "battery", "disk", "tray"],
 
-"hyprland/workspaces": {
-            "format": "{icon}",
-            "format-icons": {
-                "active": "",
-                "default": "",
-                "empty": ""
-            },
-            "persistent-workspaces": {
-                "*": [ 1,2,3,4,5 ]
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+            "active": "",
+            "default": "",
+            "empty": ""
+        },
+        "persistent-workspaces": {
+            "*": [1, 2, 3, 4, 5]
         },
         "on-click": "activate",
-        "persistent-workspaces": {
-            "*": 5
-        },
         "smooth-scrolling-threshold": 100,
         "disable-scroll-wraparound": true
     },
@@ -70,20 +67,39 @@
         "format-disconnected": "󰖪 Disconnected"
     },
 
+    "bluetooth": {
+        "format": "󰂯",
+        "format-disabled": "󰂲",
+        "format-connected": "󰂱",
+        "on-click": "blueman-manager"
+    },
+
+    "backlight": {
+        "format": "{icon} {percent}%",
+        "format-icons": ["󰃞", "󰃟", "󰃠"]
+    },
+
+    "disk": {
+        "format": "󰋊 {percentage_used}%",
+        "path": "/"
+    },
+
     "tray": {
         "spacing": 10
     },
 
-"custom/arch": {
-    "format": "",
-    "tooltip": false,
-    "on-click": "swaync-client -t -sw",
-    "on-click-right": "swaync-client -d"
-},
+    "custom/arch": {
+        "format": "",
+        "tooltip": false,
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d"
+    },
 
-    "custom/powermenu": {
-        "format": "⏻",
-        "on-click": "wlogout --protocol layer-shell",
-        "tooltip": false
+    "custom/playing": {
+        "format": "  {}",
+        "interval": 2,
+        "exec": "playerctl metadata --format '{{artist}} - {{title}}'",
+        "on-click": "playerctl play-pause",
+        "max-length": 50
     }
 }
